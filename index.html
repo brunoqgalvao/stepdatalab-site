@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StepData Lab · Licenciamento de projetos de engenharia</title>
+<meta name="description" content="A StepData Lab licencia projetos de engenharia mecânica já concluídos (moldes de injeção, peças plásticas, estudos de CFD e FEA) para treinar modelos de IA. R$ 500 a R$ 1.000 por projeto aceito.">
+<link rel="canonical" href="https://stepdatalab.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="StepData Lab">
+<meta property="og:url" content="https://stepdatalab.com/">
+<meta property="og:title" content="StepData Lab · Pagamos por projetos de engenharia que já estão prontos">
+<meta property="og:description" content="Licenciamos moldes de injeção, peças plásticas e estudos de CFD e FEA já concluídos. R$ 500 a R$ 1.000 por projeto aceito, sem custo para você.">
+<meta property="og:image" content="https://stepdatalab.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F4EF;
+  --ink:#16181B;
+  --ink-2:#4A4E55;
+  --ink-3:#7A7E85;
+  --rule:#D6D3C9;
+  --rule-strong:#16181B;
+  --accent:#1F45B5;
+  --accent-ink:#FFFFFF;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+header{border-bottom:1px solid var(--rule)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:17px;letter-spacing:-.01em}
+.brand svg{flex:none}
+.top-link{font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}
+
+.hero{padding:56px 0 48px;border-bottom:1px solid var(--rule)}
+.hero .label{margin-bottom:22px}
+h1{font-size:clamp(34px,8.6vw,60px);line-height:1.06;letter-spacing:-.025em;font-weight:600;margin:0 0 20px;max-width:16ch}
+.sub{font-size:19px;color:var(--ink-2);margin:0 0 32px;max-width:40ch}
+.ctas{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;font-family:var(--sans);font-size:16px;font-weight:500;text-decoration:none;border:1px solid var(--rule-strong);border-radius:2px}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:#18388F;border-color:#18388F}
+.btn-ghost{background:transparent;color:var(--ink);font-family:var(--mono);font-size:15px;font-weight:400}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn .arrow{font-family:var(--mono)}
+
+.titleblock{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule-strong);border-left:1px solid var(--rule-strong)}
+.titleblock div{padding:12px 14px 14px;border-right:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong)}
+.titleblock dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.titleblock dd{margin:0;font-family:var(--mono);font-size:15px;font-weight:500;line-height:1.35}
+
+section.block{padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:1fr;gap:18px}
+.sec-head .label{display:block;margin-bottom:8px}
+h2{font-size:28px;line-height:1.15;letter-spacing:-.02em;font-weight:600;margin:0}
+.lead{color:var(--ink-2);margin:0 0 4px;max-width:56ch}
+
+.rows{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--rule-strong)}
+.rows li{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 0 20px;border-bottom:1px solid var(--rule)}
+.rows .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:3px}
+.rows h3{font-size:18px;font-weight:600;margin:0 0 4px;letter-spacing:-.01em;line-height:1.3}
+.rows p{margin:0;color:var(--ink-2)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:1px 6px 0;margin-left:8px;vertical-align:3px;border-radius:2px}
+.spec{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.spec .label{color:var(--ink-2)}
+.spec code{font-family:var(--mono);font-size:15px}
+
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:8px 0 6px;padding-bottom:22px;border-bottom:1px solid var(--rule-strong)}
+.price .num{font-family:var(--mono);font-size:clamp(34px,9.4vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.price .num .dash{color:var(--ink-3);padding:0 .15em}
+.price .unit{font-family:var(--mono);font-size:13px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase}
+.facts{list-style:none;margin:0;padding:0}
+.facts li{display:grid;grid-template-columns:18px 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.facts li::before{content:"";width:9px;height:9px;border:1px solid var(--accent);margin-top:8px}
+
+.steps{list-style:none;margin:8px 0 0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:0 0 28px 52px}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;border:1px solid var(--rule-strong);background:var(--paper);z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:17px;top:34px;bottom:0;border-left:1px dashed var(--ink-3)}
+.steps h3{font-size:18px;font-weight:600;margin:4px 0 4px;letter-spacing:-.01em}
+.steps p{margin:0;color:var(--ink-2)}
+
+.clauses{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid var(--rule-strong)}
+.clauses li{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.clauses .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:2px}
+.clauses p{margin:0}
+.clauses strong{font-weight:600}
+
+.faq{border-top:1px solid var(--rule-strong);margin-top:8px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 24px;gap:12px;align-items:start;padding:18px 0;font-weight:500;font-size:17px;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:20px;line-height:1.1;color:var(--accent);text-align:right}
+.faq details[open] summary::after{content:"−"}
+.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.faq .a{padding:0 36px 20px 0;color:var(--ink-2);margin:-4px 0 0}
+.faq .a p{margin:0}
+
+.final{padding:64px 0 60px;border-bottom:1px solid var(--rule)}
+.final h2{font-size:clamp(28px,7vw,40px);max-width:18ch;margin-bottom:14px}
+.final p{color:var(--ink-2);margin:0 0 28px;max-width:46ch}
+
+footer{padding:28px 0 40px}
+footer .wrap{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.02em}
+footer .nw{white-space:nowrap}
+footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+@media (min-width:720px){
+  :root{--gutter:40px}
+  .hero{padding:88px 0 72px}
+  h1{max-width:19ch}
+  .sub{font-size:20px;max-width:46ch}
+  .ctas{flex-direction:row;align-items:center}
+  .titleblock{grid-template-columns:repeat(4,1fr);margin-top:64px}
+  section.block{padding:80px 0}
+  .sec{grid-template-columns:260px 1fr;gap:48px}
+  .sec-head{position:sticky;top:24px;align-self:start}
+  h2{font-size:30px}
+  .rows li{grid-template-columns:56px 1fr}
+  .final{padding:96px 0 88px}
+  footer .wrap{flex-direction:row;justify-content:space-between}
+}
+@media (min-width:1080px){
+  .sec{grid-template-columns:320px 1fr;gap:64px}
+  .sec-body{max-width:680px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="StepData Lab, início">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#16181B" stroke-width="2"/><path d="M16 6v20M6 16h20" stroke="#1F45B5" stroke-width="2"/><circle cx="16" cy="16" r="5" fill="none" stroke="#1F45B5" stroke-width="2"/></svg>
+      StepData Lab
+    </a>
+    <a class="top-link" href="https://calendar.app.google/3vmWs4nJaj7SsEFY6" target="_blank" rel="noopener">Marcar call</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">Licenciamento de projetos de engenharia mecânica</p>
+      <h1>Pagamos por projetos de engenharia que já estão prontos no seu servidor.</h1>
+      <p class="sub">Licenciamos moldes, peças plásticas e estudos de CFD e FEA já concluídos para treinar modelos de IA. Não é trabalho sob encomenda.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://calendar.app.google/3vmWs4nJaj7SsEFY6" target="_blank" rel="noopener">Marcar uma call de 30 min <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="mailto:bruno@stepdatalab.com">bruno@stepdatalab.com</a>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Por projeto aceito</dt><dd>R$ 500–1.000</dd></div>
+        <div><dt>Formato</dt><dd>.STEP + nativo</dd></div>
+        <div><dt>Resposta</dt><dd>Até 2 dias úteis</dd></div>
+        <div><dt>Custo para você</dt><dd>Nenhum</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="o-que-licenciamos">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="label">01</span>
+        <h2>O que licenciamos</h2>
+      </div>
+      <div class="sec-body">
+        <p class="lead">Projetos concluídos que já estão arquivados na sua empresa ou laboratório. Neste momento procuramos:</p>
+        <ul class="rows">
+          <li><span class="n">A</span><div><h3>Moldes de injeção completos <span class="tag">Prioridade</span></h3><p>Montagem inteira do molde: cavidade, macho, gavetas e sistema de extração.</p></div></li>
+          <li><span class="n">B</span><div><h3>Peças plásticas reprojetadas para moldagem</h3><p>A versão corrigida da peça, junto com o projeto de cavidade e macho.</p></div></li>
+          <li><span class="n">C</span><div><h3>Estudos de CFD e FEA térmica</h3><p>Escoamento interno ou externo e análises térmicas, com a geometria e as condições de contorno.</p></div></li>
+        </ul>
+        <div class="spec">
+          <span class="label">Formato</span>
+          <span><code>.STEP</code> + o arquivo nativo (SolidWorks, NX, CATIA ou similar)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="quanto-pagamos">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="label">02</span>
+        <h2>Quanto pagamos</h2>
+      </div>
+      <div class="sec-body">
+        <div class="price">
+          <span class="num">R$ 500<span class="dash">–</span>1.000</span>
+          <span class="unit">por projeto aceito</span>
+        </div>
+        <ul class="facts">
+          <li>O pagamento sai depois que o comprador aprova o arquivo.</li>
+          <li>A avaliação é gratuita e não tem custo nenhum para você.</li>
+          <li>Respondemos em até 2 dias úteis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="como-funciona">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="label">03</span>
+        <h2>Como funciona</h2>
+      </div>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><h3>Mande uma lista curta</h3><p>Nome do projeto, tipo e software usado. Não precisa enviar arquivo nesta etapa.</p></li>
+          <li><h3>Dizemos o que serve</h3><p>Em até 2 dias úteis você sabe quais projetos se encaixam.</p></li>
+          <li><h3>Assine, entregue e receba</h3><p>Você assina uma licença simples, entrega os arquivos e recebe depois da aprovação.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="licenca">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="label">04</span>
+        <h2>Licença e direitos</h2>
+      </div>
+      <div class="sec-body">
+        <ul class="clauses">
+          <li><span class="n">4.1</span><p><strong>A licença é exclusiva e permite publicação.</strong> Depois de licenciado, o projeto não pode ser licenciado para mais ninguém.</p></li>
+          <li><span class="n">4.2</span><p><strong>Você declara que tem os direitos.</strong> Num contrato simples, a fonte declara que tem o direito de licenciar o projeto. A responsabilidade por essa titularidade é da fonte.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="perguntas">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="label">05</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="sec-body">
+        <div class="faq">
+          <details>
+            <summary>A conversa é confidencial?</summary>
+            <div class="a"><p>Sim. A lista e os arquivos que você manda para avaliação não são repassados a ninguém além do comprador. Projeto que não for aceito não é usado. Como a licença permite publicação, mande só projetos que você pode liberar.</p></div>
+          </details>
+          <details>
+            <summary>Quem compra os projetos?</summary>
+            <div class="a"><p>Empresas de IA que treinam modelos de engenharia. Os projetos servem como dados de treinamento desses modelos.</p></div>
+          </details>
+          <details>
+            <summary>Preciso mandar os arquivos para a avaliação?</summary>
+            <div class="a"><p>Não. Para avaliar basta a lista com nome, tipo e software de cada projeto. Os arquivos só vão depois que a licença estiver assinada.</p></div>
+          </details>
+          <details>
+            <summary>E se um arquivo for recusado?</summary>
+            <div class="a"><p>Não há pagamento por ele e ele não é usado. Você não tem custo nenhum com a recusa.</p></div>
+          </details>
+          <details>
+            <summary>Como é feito o pagamento?</summary>
+            <div class="a"><p>Por Pix ou transferência bancária, depois que o comprador aprova o arquivo, contra nota fiscal ou recibo.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <p class="label">Próximo passo</p>
+      <h2>Tem projetos assim parados no servidor?</h2>
+      <p>Mande a lista por e-mail ou marque 30 minutos para conversar. Em até 2 dias úteis dizemos o que serve.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://calendar.app.google/3vmWs4nJaj7SsEFY6" target="_blank" rel="noopener">Marcar uma call de 30 min <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="mailto:bruno@stepdatalab.com?subject=Lista%20de%20projetos">bruno@stepdatalab.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>StepData Lab é uma iniciativa da <span class="nw">PQG Ventures · São Paulo</span></span>
+    <span>© 2026 · <a href="mailto:bruno@stepdatalab.com">bruno@stepdatalab.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
